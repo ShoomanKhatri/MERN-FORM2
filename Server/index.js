@@ -6,9 +6,9 @@ const UserModel = require("./models/Users");
 const app = express();
 app.use(
   cors({
-    origin: "*",
+    origin: ["*"],
     methods: ["POST", "GET"],
-    // credentials: true,
+    credentials: true,
   })
 );
 app.use(express.json());
