@@ -32,7 +32,7 @@ function UpdateUser() {
 
   const Update = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:3001/updateUser/${id}`, { name, age, gender, salary, citizenshipNumber })
+    axios.put(`https://mern-form-2-frontend.vercel.app/${id}`, { name, age, gender, salary, citizenshipNumber })
       .then(result => {
         console.log(result);
         navigate('/');
