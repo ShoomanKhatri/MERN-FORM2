@@ -21,7 +21,7 @@ const CreateUser = () => {
         // const formData = new FormData();
         // formData.append('citizenshipPic', citizenshipPic);
 
-        axios.post("http://localhost:3001/createUser", { name, age, gender, salary, citizenshipNumber })
+        axios.post("https://mern-form-2.vercel.app/", { name, age, gender, salary, citizenshipNumber })
             .then(result => {
                 console.log(result)
                 navigate('/')
