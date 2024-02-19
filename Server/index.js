@@ -6,14 +6,21 @@ const UserModel = require("./models/Users");
 const app = express();
 app.use(
   cors({
-    // origin: [""],
-    // methods: ["POST", "GET"],
-    // credentials: true,
+    origin: "*",
+    methods: ["POST", "GET"],
+    credentials: true,
   })
 );
 app.use(express.json());
 mongoose.connect(
-  "mongodb+srv://shoomankhatri:7RaEFBSU2Hti8cxB@cluster1.zgj3g3g.mongodb.net/"
+  "mongodb+srv://shoomankhatri:7RaEFBSU2Hti8cxB@cluster1.zgj3g3g.mongodb.net/",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    // poolSize: 10, // Adjust the pool size as needed
+    // minSize: 5, // Minimum number of connections
+    // maxSize: 20, // Maximum number of connections
+  }
 );
 
 app.get("/", async (req, res) => {
