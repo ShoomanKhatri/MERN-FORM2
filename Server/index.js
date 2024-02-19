@@ -12,25 +12,26 @@ app.use(
   })
 );
 app.use(express.json());
+mongoose.connect(
+  "mongodb+srv://shoomankhatri:7RaEFBSU2Hti8cxB@cluster1.zgj3g3g.mongodb.net/"
+);
 
-mongoose.connect("mongodb://127.0.0.1:27017/MERN-FORM");
-
-app.get("/", (req, res) => {
-  UserModel.find({})
+app.get("/", async (req, res) => {
+  await UserModel.find({})
     .then((users) => res.json(users))
     .catch((err) => res.json(err));
 });
 
-app.get("/getUser/:id", (req, res) => {
+app.get("/getUser/:id", async (req, res) => {
   const id = req.params.id;
-  UserModel.findById({ _id: id })
+  await UserModel.findById({ _id: id })
     .then((users) => res.json(users))
     .catch((err) => res.json(err));
 });
 
-app.put("/updateUser/:id", (req, res) => {
+app.put("/updateUser/:id", async (req, res) => {
   const id = req.params.id;
-  UserModel.findByIdAndUpdate(
+  await UserModel.findByIdAndUpdate(
     { _id: id },
     {
       name: req.body.name,
@@ -45,14 +46,14 @@ app.put("/updateUser/:id", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-app.delete("/deleteUser/:id", (req, res) => {
+app.delete("/deleteUser/:id", async (req, res) => {
   const id = req.params.id;
-  UserModel.findByIdAndDelete({ _id: id })
+  await UserModel.findByIdAndDelete({ _id: id })
     .then((users) => res.json(res))
     .catch((err) => res.json(err));
 });
-app.post("/createUser", (req, res) => {
-  UserModel.create(req.body)
+app.post("/createUser", async (req, res) => {
+  await UserModel.create(req.body)
     .then((users) => res.json(users))
     .catch((err) => res.json(err));
 });
