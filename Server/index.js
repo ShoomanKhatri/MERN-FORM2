@@ -6,9 +6,9 @@ const UserModel = require("./models/Users");
 const app = express();
 app.use(
   cors({
-    // origin: ["https://deploy-mern.app"],
-    // methods: ["POST", "GET"],
-    // credentials: true,
+    origin: [""],
+    methods: ["POST", "GET"],
+    credentials: true,
   })
 );
 app.use(express.json());
