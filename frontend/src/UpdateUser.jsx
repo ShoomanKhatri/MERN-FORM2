@@ -13,7 +13,7 @@ function UpdateUser() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/getUser/${id}`)
+    axios.get(`https://mern-form-2-frontend.vercel.app/${id}`)
       .then(result => {
         const userData = result.data;
         setName(userData.name);
