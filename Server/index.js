@@ -13,7 +13,7 @@ app.use(
 );
 app.use(express.json());
 mongoose.connect(
-  "mongodb+srv://shoomankhatri:7RaEFBSU2Hti8cxB@cluster1.zgj3g3g.mongodb.net/"
+  "mongodb+srv://shoomankhatri:7RaEFBSU2Hti8cxB@cluster1.zgj3g3g.mongodb.net/?retryWrites=true&w=majority/"
 );
 
 app.get("/", async (req, res) => {
